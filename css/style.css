@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Quicksand", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+body {
+    background-color: #FAF7F3;
+    background-image: linear-gradient(to right, #faf7f3, #f8f3ed, #f7f0e7, #f5ece1, #f3e9db, #f3e9db, #f3e9db, #f3e9db, #f5ece1, #f7f0e7, #f8f3ed, #faf7f3);
+    overflow-x: hidden;
+    color: #666666;
+    font-family: "Open Sans", sans-serif;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Quicksand", sans-serif;
+    color: #333333;
+    letter-spacing: normal;
+}
+
+/* ===== Header ====== */
+
+header {
+    background-image: linear-gradient(to left, #faf7f3, #f8f3ed, #f7f0e7, #f5ece1, #f3e9db, #f3e9db, #f3e9db, #f3e9db, #f5ece1, #f7f0e7, #f8f3ed, #faf7f3);
+}
+
+
+/* ===== Hero Section ====== */
+
+.subtitle:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 1px;
+    background-color: #666;
+    left: 120px;
+    top: 13px;
+}

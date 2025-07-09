@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favIcon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,15 +14,109 @@
     <!-- Google Fonts: Rajdhani -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css" />
-    <title>Portfolio</title>
+    <title>Serum | Product</title>
 </head>
 
-<body class="font-rajdhani">
+<body>
 
-    <script src="js/script.js"></script>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white z-50 transition-all duration-300 opacity-0 -translate-y-full">
+        <div class="container mx-auto flex flex-wrap p-5 py-8 flex-col md:flex-row items-center justify-between">
+            <a class="flex font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <span class=" text-4xl uppercase">Serum</span>
+            </a>
+            <nav class=" flex flex-wrap items-center text-base justify-center gap-10">
+                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="index.html">Home</a>
+                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="product.html">Product</a>
+                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="about.html">About</a>
+                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="contact.html">Contact</a>
+            </nav>
+            <!-- Hamburger -->
+            <button
+                class="md:hidden inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Menu
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <!-- cart -->
+            <ul class="flex items-center gap-7">
+                <li>
+                    <a href="search.html"><img src="images/search.svg" alt="search"></a>
+                </li>
+                <li>
+                    <a href="cart.html"><img src="images/cart.svg" alt="cart"></a>
+                </li>
+                <li>
+                    <a href="login.html"><img src="images/admin.svg" alt="user"></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- hero section -->
+    <div class="container mx-auto grid grid-cols-2 px-5 py-52 items-center justify-between">
+        <div class="flex flex-col items-start">
+            <div class="subtitle text-base text-[#666666] relative">organic serum</div>
+            <h1 class="text-[200px] leading-[.8] font-medium text-gray-900">serum</h1>
+            <h3 class="text-7xl my-6 font-light text-gray-900 tracking-tight">Moisturizer primer</h3>
+            <p class=" text-[#666666] leading-7 font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Suscipit,
+                non?
+                Optio voluptate
+                eaque ipsam
+                dolores, voluptas eligendi exercitationem rem cum, laudantium harum incidunt, adipisci ut numquam
+                delectus. Rem, optio quisquam?</p>
+            <div class="price my-6">
+                <span class="text-4xl font-semibold text-gray-900">$90.00</span>
+                <!-- <span class="text-[#666666] text-sm font-medium line-through ml-2">$25.00</span> -->
+            </div>
+            <button
+                class="text-white bg-[#333333] border-0 py-3 px-10 focus:outline-none hover:bg-gray-600 rounded text-2xl">Buy
+                Now</button>
+        </div>
+        <div class="image w-44 mx-auto">
+            <img src="images/serum.png" alt="serum">
+        </div>
+    </div>
+
+    <!-- hero section -->
+    <div class="container mx-auto grid grid-cols-2 px-5 py-24 items-center justify-between">
+        <div class="flex flex-col items-start">
+            <div class="subtitle text-base text-[#666666] relative">organic serum</div>
+            <h1 class="text-[200px] leading-[.8] font-medium text-gray-900">serum</h1>
+            <h3 class="text-7xl my-6 font-light text-gray-900 tracking-tight">Moisturizer primer</h3>
+            <p class=" text-[#666666] leading-7 font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Suscipit,
+                non?
+                Optio voluptate
+                eaque ipsam
+                dolores, voluptas eligendi exercitationem rem cum, laudantium harum incidunt, adipisci ut numquam
+                delectus. Rem, optio quisquam?</p>
+            <div class="price my-6">
+                <span class="text-4xl font-semibold text-gray-900">$90.00</span>
+                <!-- <span class="text-[#666666] text-sm font-medium line-through ml-2">$25.00</span> -->
+            </div>
+            <button
+                class="text-white bg-[#333333] border-0 py-3 px-10 focus:outline-none hover:bg-gray-600 rounded text-2xl">Buy
+                Now</button>
+        </div>
+        <div class="image w-44 mx-auto">
+            <img src="images/serum.png" alt="serum">
+        </div>
+    </div>
+
+
+
+    <!-- Custom JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 
 </html>
