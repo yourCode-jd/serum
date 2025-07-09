@@ -25,17 +25,16 @@
 <body>
 
     <!-- Header -->
-    <header
-        class="hidden fixed top-0 left-0 w-full bg-white z-50 transition-all duration-300 opacity-0 -translate-y-full">
-        <div class="container mx-auto flex flex-wrap p-5 py-8 flex-col md:flex-row items-center justify-between">
-            <a class="flex font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <span class=" text-4xl uppercase">Serum</span>
+    <header class=" fixed top-0 left-0 w-full bg-white z-50 transition-all duration-300 opacity-0 -translate-y-full">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+            <a class="flex font-medium items-center text-black mb-4 md:mb-0">
+                <h3 class="text-4xl uppercase font-bold">Serum</h3>
             </a>
             <nav class=" flex flex-wrap items-center text-base justify-center gap-10">
-                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="index.html">Home</a>
-                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="product.html">Product</a>
-                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="about.html">About</a>
-                <a class="mr-5 hover:text-gray-600 text-[#333333] font-medium text-lg" href="contact.html">Contact</a>
+                <a class="mr-5 hover:text-black text-[#666666] font-medium text-lg" href="index.html">Home</a>
+                <a class="mr-5 hover:text-black text-[#666666] font-medium text-lg" href="product.html">Product</a>
+                <a class="mr-5 hover:text-black text-[#666666] font-medium text-lg" href="about.html">About</a>
+                <a class="mr-5 hover:text-black text-[#666666] font-medium text-lg" href="contact.html">Contact</a>
             </nav>
             <!-- Hamburger -->
             <button
@@ -61,52 +60,104 @@
     </header>
 
     <!-- Main -->
-    <div class="container mx-auto px-5">
+    <section>
+        <div class="container mx-auto px-5">
 
-        <!-- Hero section -->
-        <div class="grid grid-cols-2 py-52 items-center justify-between h-screen">
-            <div class="flex flex-col items-start">
-                <div class="subtitle text-base text-[#666666] relative">organic serum</div>
-                <h1 class="text-[200px] leading-[.8] font-medium text-gray-900">serum</h1>
-                <h3 class="text-7xl my-6 font-light text-gray-900 tracking-tight">Moisturizer primer</h3>
-                <p class=" text-[#666666] leading-7 font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Suscipit, non? Optio voluptate eaque ipsam dolores, voluptas eligendi exercitationem rem cum,
-                    laudantium harum incidunt, adipisci ut numquam delectus. Rem, optio quisquam?</p>
-                <div class="price my-6">
-                    <span class="text-4xl font-semibold text-gray-900">$90.00</span>
-                    <!-- <span class="text-[#666666] text-sm font-medium line-through ml-2">$25.00</span> -->
+            <!-- Hero section -->
+            <div class="grid grid-cols-2 justify-between py-20">
+                <div class="flex flex-col items-start justify-center">
+                    <!-- <div class="subtitle text-base relative text-[#666666]">organic serum</div> -->
+                    <h1 class="text-[150px] leading-[.8] font-light">serum</h1>
+                    <h3 class="text-6xl my-6 font-light tracking-tight">Moisturizer primer</h3>
+                    <p class=" text-[#666666] leading-7 font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Suscipit, non? Optio voluptate eaque ipsam dolores, voluptas eligendi exercitationem rem
+                        cum,
+                        laudantium harum incidunt, adipisci ut numquam delectus. Rem, optio quisquam?</p>
+                    <!-- <div class="price my-6">
+                        <span class="text-4xl font-semibold text-[#666666]">$90.00</span>
+                    </div>-->
+                    <button id="customBtn"
+                        class="mt-8 text-white border-0 py-3 px-10 focus:outline-none rounded text-2xl">Buy
+                        Now</button>
                 </div>
-                <button
-                    class="mt-3 text-white bg-[#333333] border-0 py-3 px-10 focus:outline-none hover:bg-gray-600 rounded text-2xl">Buy
-                    Now</button>
+                <div id="serumImageHero" class="image w-44 mx-auto relative z-60">
+                    <img src="images/serum.png" alt="serum">
+                </div>
             </div>
-            <div id="serumImageHero" class="image w-44 mx-auto relative z-60">
-                <img src="images/serum.png" alt="serum">
+
+            <!-- About section -->
+            <div class="grid grid-cols-2 pt-24 items-center justify-between h-screen">
+                <div class="flex items-start">
+                    <div id="serumImageAbout1" class="w-36 mx-auto relative z-0 scale-[0.2] opacity-0">
+                        <img src="images/serum.png" alt="serum">
+                    </div>
+                    <div id="serumImageAbout" class="image w-44 mx-auto relative z-0 h-[576px]">
+
+                    </div>
+                    <div id="serumImageAbout2" class=" w-36 mx-auto relative z-0 scale-[0.2] opacity-0">
+                        <img src="images/serum.png" alt="serum">
+                    </div>
+                </div>
+                <div id="aboutContent" class="flex flex-col gap-8 items-start opacity-0 translate-y-12">
+                    <div class="subtitle text-base text-[#666666] relative">organic serum</div>
+                    <h1 class="text-[150px] leading-[.8] font-light">About Us</h1>
+                    <p class=" text-[#666666] leading-7 font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Suscipit, non? Optio voluptate eaque ipsam dolores, voluptas eligendi exercitationem rem
+                        cum,
+                        laudantium harum incidunt, adipisci ut numquam delectus. Rem, optio quisquam? Lorem ipsum dolor
+                        sit,
+                        amet consectetur adipisicing elit. Laudantium unde, vitae sit veritatis nobis quod veniam
+                        excepturi
+                        optio porro vero aspernatur culpa voluptatibus corrupti expedita architecto soluta voluptatem
+                        dolore
+                        velit.</p>
+                    <button id="customBtn"
+                        class="mt-3 text-white border-0 py-3 px-10 focus:outline-none rounded text-2xl">Read
+                        More</button>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- About section -->
-        <div class="grid grid-cols-2 py-24 items-center justify-between h-screen">
-            <div id="serumImageAbout" class="image w-44 mx-auto relative z-0 h-[576px]">
+    <section id="featuresSection" class="relative h-[400vh] bg-white">
+        <!-- Sticky container -->
+        <div class="sticky top-0 h-screen flex items-center justify-center">
+            <div class="relative w-full max-w-7xl mx-auto grid grid-cols-3 gap-8 items-center">
+                <!-- Left feature container -->
+                <div class="relative h-[300px] flex items-center justify-end">
+                    <div class="absolute left-0 feature opacity-0" id="feature1">
+                        <h2 class="text-3xl font-bold text-right">Hydration Boost</h2>
+                        <p class="text-gray-600 text-right">Deeply hydrates and refreshes your skin.</p>
+                        <a href="#" class="text-blue-500 underline text-right">Read more</a>
+                    </div>
+                    <div class="absolute left-0 feature opacity-0" id="feature3">
+                        <h2 class="text-3xl font-bold text-right">Brightening Formula</h2>
+                        <p class="text-gray-600 text-right">Evens skin tone and adds glow naturally.</p>
+                        <a href="#" class="text-blue-500 underline text-right">Read more</a>
+                    </div>
+                </div>
 
-            </div>
-            <div id="aboutContent" class="flex flex-col gap-8 items-start opacity-0 translate-y-12">
-                <div class="subtitle text-base text-[#666666] relative">organic serum</div>
-                <h1 class="text-[150px] leading-[.8] font-medium text-gray-900">About Us</h1>
-                <p class=" text-[#666666] leading-7 font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Suscipit, non? Optio voluptate eaque ipsam dolores, voluptas eligendi exercitationem rem cum,
-                    laudantium harum incidunt, adipisci ut numquam delectus. Rem, optio quisquam? Lorem ipsum dolor sit,
-                    amet consectetur adipisicing elit. Laudantium unde, vitae sit veritatis nobis quod veniam excepturi
-                    optio porro vero aspernatur culpa voluptatibus corrupti expedita architecto soluta voluptatem dolore
-                    velit.</p>
-                <button
-                    class="text-white bg-[#333333] border-0 py-3 px-10 focus:outline-none hover:bg-gray-600 rounded text-2xl">Read
-                    More</button>
+                <!-- Center image -->
+                <div class="w-44 mx-auto relative z-10 opacity-0" id="centerImage">
+                    <img src="images/serum.png" alt="serum" class="w-full" />
+                </div>
+
+                <!-- Right feature container -->
+                <div class="relative h-[300px] flex items-center justify-start">
+                    <div class="absolute right-0 feature opacity-0" id="feature2">
+                        <h2 class="text-3xl font-bold">Anti-aging Power</h2>
+                        <p class="text-gray-600">Reduces fine lines and wrinkles with every use.</p>
+                        <a href="#" class="text-blue-500 underline">Read more</a>
+                    </div>
+                    <div class="absolute right-0 feature opacity-0" id="feature4">
+                        <h2 class="text-3xl font-bold">Natural Ingredients</h2>
+                        <p class="text-gray-600">Made with botanical extracts and no harsh chemicals.</p>
+                        <a href="#" class="text-blue-500 underline">Read more</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-
+    </section>
 
 
 
