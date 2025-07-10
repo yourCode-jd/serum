@@ -35,8 +35,8 @@ let header = document.querySelector("header");
 
 ScrollTrigger.create({
   start: "top -20",
-  onEnter: () => header.classList.add("py-0", "shadow-md"),
-  onLeaveBack: () => header.classList.remove("py-0", "shadow-md"),
+  onEnter: () => header.classList.add("py-0", "shadow-sm"),
+  onLeaveBack: () => header.classList.remove("py-0", "shadow-sm"),
 });
 
 gsap.from("nav a", {
@@ -99,17 +99,17 @@ gsap.from("p", {
   },
 });
 
-gsap.from(".price", {
-  scale: 0.9,
-  opacity: 0,
-  duration: 0.8,
-  delay: 1.5,
-  ease: "back.out(1.7)",
-  scrollTrigger: {
-    trigger: ".price",
-    start: "top 85%",
-  },
-});
+// gsap.from(".price", {
+//   scale: 0.9,
+//   opacity: 0,
+//   duration: 0.8,
+//   delay: 1.5,
+//   ease: "back.out(1.7)",
+//   scrollTrigger: {
+//     trigger: ".price",
+//     start: "top 85%",
+//   },
+// });
 
 gsap.from("button", {
   opacity: 0,
@@ -134,6 +134,21 @@ gsap.from(".image img", {
   scrollTrigger: {
     trigger: ".image img",
     start: "top 90%",
+  },
+});
+
+gsap.from(".imageWrapper", {
+  opacity: 0.8,
+  scale: 0.2,
+  rotate: 360,
+  opacity: 0,
+  y: -1000,
+  duration: 2,
+  delay: 3,
+  ease: "back.out(1.7)",
+  scrollTrigger: {
+    trigger: ".imageWrapper",
+    start: "top 85%",
   },
 });
 
@@ -190,18 +205,33 @@ window.addEventListener("load", () => {
     },
   });
 
+  gsap.to(".aboutWrapper", {
+    opacity: 0.5,
+    rotate: 45,
+    scale: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#serumImageAbout",
+      start: "top center",
+      end: "center center",
+      scrub: 2,
+      toggleActions: "play reverse play reverse",
+      markers: false,
+    },
+  });
+
   // 1. Animate parent wrapper into view (remove Tailwind hiding)
   // Show #aboutContent (undo opacity-0 & translate-y-12 from Tailwind)
   gsap.to("#aboutContent", {
     opacity: 1,
     y: 0, // removes translate-y-12
     ease: "none",
-    duration: 2,
+    duration: 1,
     scrollTrigger: {
       trigger: "#serumImageAbout",
       start: "top center",
       end: "center-=50 center",
-      scrub: 3,
+      scrub: 1,
       markers: false,
     },
   });
@@ -209,14 +239,14 @@ window.addEventListener("load", () => {
   // 2. Animate each child element
   gsap.from("#aboutContent > *", {
     opacity: 0,
-    y: 40,
-    duration: 1,
+    y: 0,
+    duration: 0.2,
     ease: "power3.out",
-    stagger: 1,
+    stagger: 0.2,
     scrollTrigger: {
       // trigger: "#serumImageAbout",
       start: "top center",
-      end: "center center",
+      end: "top center",
       scrub: true,
       markers: false,
     },
@@ -227,57 +257,193 @@ window.addEventListener("load", () => {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Center image fade-in once at section entry
-gsap.to("#centerImage", {
-  opacity: 1,
-  duration: 2,
-  ease: "power2.out",
+// Center image animation on entry
+gsap.from("#serumImagefeatures", {
+  opacity: 0,
+  scale: 0.2,
+  y: 100,
+  duration: 1.5,
+  ease: "power3.out",
   scrollTrigger: {
     trigger: "#featuresSection",
-    start: "top center",
-    end: "center bottom-=500",
-    toggleActions: "play reverse play reverse",
+    start: "top center+=100",
+    toggleActions: "play none none reverse",
     markers: false,
   },
 });
 
-// Sequential feature fade in/out
+// Sequential features with better spacing
 const sequence = ["#feature1", "#feature2", "#feature3", "#feature4"];
 
 sequence.forEach((id, i) => {
   const feature = document.querySelector(id);
 
+  // Show current feature
   gsap.fromTo(
     feature,
     { opacity: 0 },
     {
       opacity: 1,
-      duration: 1,
       ease: "power2.out",
       scrollTrigger: {
         trigger: "#featuresSection",
-        start: `top+=${i * 500 + 500} center`,
-        end: `top+=${i * 500 + 560} center`,
-        toggleActions: "play reverse play reverse",
-        scrub: true,
-        markers: true,
+        start: `top+=${i * 1000} top`, // start at different times
+        end: `top+=${i * 1000 + 400} center`, // longer hold
+        scrub: 1,
+        markers: false,
       },
     }
   );
 
-  // Hide previous feature (if exists)
+  // Hide previous feature
   if (i > 0) {
     const prevFeature = document.querySelector(sequence[i - 1]);
     gsap.to(prevFeature, {
       opacity: 0,
-      duration: 1,
-      ease: "power2.out",
+      ease: "power2.inOut",
       scrollTrigger: {
         trigger: "#featuresSection",
-        start: `top+=${i * 500 + 60} center`,
-        end: `top+=${i * 300 + 100} center`,
-        scrub: true,
+        start: `top+=${i * 1000 - 200} center`,
+        end: `top+=${i * 1000} center`,
+        scrub: 1,
+        markers: false,
       },
     });
   }
 });
+
+// ===========  why choose Animation =========== //
+gsap.registerPlugin(ScrollTrigger, Draggable);
+
+// Animate boxes on scroll
+gsap.utils.toArray(".why-box").forEach((box, i) => {
+  gsap.fromTo(
+    box,
+    {
+      opacity: 0,
+      scale: 0.7,
+      y: 50,
+      filter: "blur(10px)",
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#whyChoose",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      delay: i * 0.2,
+    }
+  );
+
+  // Enable drag inside container
+  Draggable.create(box, {
+    bounds: "#whyDragArea",
+    inertia: true,
+    edgeResistance: 0.8,
+    type: "x,y",
+  });
+});
+
+// ===========  Testimonials Animation =========== //
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// const items = gsap.utils.toArray(".serumStack");
+
+// items.forEach((item, i) => {
+//   const offset = i * 60;
+//   how much each is shifted initially
+
+//   Set initial position
+//   gsap.set(item, {
+//     xPercent: -50,
+//     yPercent: -50,
+//     x: `${offset * 3}px`,
+//     y: `${-offset * 1.5}px`,
+//     scale: 1.2,
+//     opacity: 0,
+//     zIndex: i,
+//   });
+
+//   Animate each one stacking to center
+//   gsap.to(item, {
+//     x: 0,
+//     y: 0,
+//     opacity: 1,
+//     scale: 1,
+//     ease: "power4.out",
+//     scrollTrigger: {
+//       trigger: "#productScrollStack",
+//       start: `top+=${i * 150 + 200} center`,
+//       end: `top+=${i * 200 + 300} center`,
+//       scrub: 2,
+//       markers: false,
+//     },
+//   });
+// });
+
+gsap.registerPlugin(ScrollTrigger);
+
+const images = gsap.utils.toArray(".serum-image");
+const centerX = window.innerWidth / 2;
+
+images.forEach((img, index) => {
+  const imgRect = img.getBoundingClientRect();
+  const imgX = imgRect.left + imgRect.width / 2;
+  const distanceToCenter = centerX - imgX;
+
+  gsap.to(img, {
+    scrollTrigger: {
+      trigger: "#serum-section",
+      start: "center center",
+      end: "bottom-=50 bottom",
+      scrub: 1,
+      toggleActions: "play none none reverse",
+      markers: false,
+    },
+    x: distanceToCenter * 0.7,
+    zIndex: 10 + index,
+    scale: 1.1 + index * 0.05,
+    opacity: 1,
+  });
+});
+
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: "#serum-section",
+      start: "top center+=100",
+      end: "bottom center",
+      scrub: true,
+      markers: false,
+    },
+  })
+  .from(".serum-content h2", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+  })
+  .from(
+    ".serum-content p",
+    {
+      opacity: 0,
+      y: 40,
+      duration: 1,
+    },
+    "-=0.5"
+  )
+  .from(
+    "#customBtn",
+    {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+    },
+    "-=0.4"
+  );

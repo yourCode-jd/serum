@@ -18,11 +18,10 @@ body::-webkit-scrollbar {
 
 body {
     background-color: #FAF7F3;
-    background-image: linear-gradient(to right, #faf7f3, #f8f3ed, #f7f0e7, #f5ece1, #f3e9db, #f3e9db, #f3e9db, #f3e9db, #f5ece1, #f7f0e7, #f8f3ed, #faf7f3);
+    background-image: linear-gradient(to left top, #f8f4e1, #d4caaf, #b3a080, #937855, #74512d);
     overflow-x: hidden;
     color: #000;
     font-family: "Open Sans", sans-serif;
-    height: 100vh;
 }
 
 
@@ -33,29 +32,21 @@ h4,
 h5,
 h6 {
     font-family: "Quicksand", sans-serif;
-    color: #000;
+    color: #ffffff;
     letter-spacing: normal;
-    background-image: linear-gradient(to right top, #7b4019, #622d1e, #441f1d, #261315, #000000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
 
 /* ===== Custom Button ===== */
 #customBtn {
-    background-image: linear-gradient(to right top, #7b4019, #622d1e, #441f1d, #261315, #000000);
-    columns: #fff;
+    color: #fff;
+    border: 1px solid #fff;
 }
 
 /* ===== Section ===== */
+
 section {
     padding: 100px 0;
-}
-
-/* ===== Header ====== */
-
-header {
-    background-image: linear-gradient(to left, #faf7f3, #f8f3ed, #f7f0e7, #f5ece1, #f3e9db, #f3e9db, #f3e9db, #f3e9db, #f5ece1, #f7f0e7, #f8f3ed, #faf7f3);
 }
 
 
@@ -67,25 +58,41 @@ header {
     display: block;
     width: 200px;
     height: 1px;
-    background-color: #666;
+    background-color: #ffffff;
     left: 120px;
     top: 13px;
 }
 
-/* #serumImageHero::before {
+.imageWrapper {
     content: "";
     position: absolute;
     display: block;
     width: 400px;
-    height: 630px;
-    left: -120px;
-    bottom: -10px;
+    height: 400px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 100% 0 100% 0;
-    box-shadow: 19px -20px 0px 20px #ffffff, 57px -24px 60px 20px #ffffff;
-    filter: blur(5px);
+    box-shadow: 19px -20px 0px 20px #ffffff;
+    filter: blur(10px);
+    bottom: 0;
 }
 
-*/
+.aboutWrapper {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 400px;
+    height: 400px;
+    left: 20%;
+    border-radius: 100% 0 100% 0;
+    box-shadow: 19px -20px 0px 20px #ffffff;
+    filter: blur(10px);
+    bottom: -80px;
+    rotate: 15deg;
+    scale: 0;
+    z-index: -1;
+}
+
 /* ====== About Section ===== */
 
 #serumImageAbout1 {
@@ -98,4 +105,39 @@ header {
     left: -122px;
     z-index: -1;
     top: 65px;
+}
+
+/* ===== Features Section ==== */
+
+#whyDragArea {
+    position: relative;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+    /* Grid cell size */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0;
+}
+
+.why-box {
+    transition: box-shadow 0.3s ease;
+}
+
+.why-box:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+/*  */
+
+.serum-image {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+.serum-image img {
+    width: 100%;
 }
