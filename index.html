@@ -228,7 +228,7 @@
 
                 <!-- Center image -->
                 <div class="">
-                    <div id="serumImagefeatures" class=" w-4/5 mx-auto relative ">
+                    <div id="serumImagefeatures" class=" w-5/6 mx-auto relative ">
                         <img src="images/featureserum.png" alt="serum">
                     </div>
                 </div>
@@ -253,8 +253,10 @@
         </div>
     </section>
 
-    <section id="serum-section" class="relative h-[105vh] overflow-hidden">
-        <div class="grid grid-cols-6 gap-4 w-4/5 mx-auto pt-20 ">
+    <section id="serum-section" class="relative h-[100vh] overflow-hidden">
+
+        <!-- 6 Images -->
+        <div class="grid grid-cols-6 gap-4 w-4/5 mx-auto pt-20">
             <div class="serum-image w-40"><img src="images/serum.png" alt="serum"></div>
             <div class="serum-image w-40"><img src="images/serum.png" alt="serum"></div>
             <div class="serum-image w-40"><img src="images/serum.png" alt="serum"></div>
@@ -262,16 +264,25 @@
             <div class="serum-image w-40"><img src="images/serum.png" alt="serum"></div>
             <div class="serum-image w-40"><img src="images/serum.png" alt="serum"></div>
         </div>
-        <div class="serum-content text-center text-white z-20 relative pointer-events-auto">
+
+        <!-- Content (Initially Visible, but GSAP will hide) -->
+        <div
+            class="serum-content max-w-lg text-left text-white z-20 absolute top-1/2 left-56 transform -translate-y-1/2">
             <h2 class="text-6xl font-bold mb-4">Discover the Power of Serum</h2>
             <p class="text-lg mb-8">Experience the ultimate in skincare with our premium serum.</p>
             <button id="customBtn"
-                class="bg-[#543310] text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-[#543310]/80 transition-colors">Shop
-                Now</button>
+                class="bg-[#543310] text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-[#543310]/80 transition-colors">
+                Shop Now
+            </button>
         </div>
     </section>
 
 
+
+
+    <!-- <div class="grid grid-cols-6 gap-4 w-4/5 mx-auto pt-20">
+        <div class="serum-image w-40"><img src="images/serum.png" alt="serum" /></div>
+    </div> -->
 
 
     <!-- Custom JS -->

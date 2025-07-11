@@ -129,15 +129,3 @@ section {
 .why-box:hover {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
-
-/*  */
-
-.serum-image {
-    position: relative;
-    z-index: 1;
-    transition: transform 0.3s ease, z-index 0.3s ease;
-}
-
-.serum-image img {
-    width: 100%;
-}

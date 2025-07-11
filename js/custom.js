@@ -393,57 +393,59 @@ gsap.registerPlugin(ScrollTrigger);
 const images = gsap.utils.toArray(".serum-image");
 const centerX = window.innerWidth / 2;
 
+// Hide content initially
+gsap.set(".serum-content", { autoAlpha: 0 });
+
+// Main timeline (scroll controlled)
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#serum-section",
+    start: "top top",
+    end: "+=3000", // longer scroll, smoother motion
+    scrub: true,
+    pin: true,
+    markers: false,
+  },
+});
+
+// Step 1: move images to center
 images.forEach((img, index) => {
   const imgRect = img.getBoundingClientRect();
   const imgX = imgRect.left + imgRect.width / 2;
   const distanceToCenter = centerX - imgX;
 
-  gsap.to(img, {
-    scrollTrigger: {
-      trigger: "#serum-section",
-      start: "center center",
-      end: "bottom-=50 bottom",
-      scrub: 1,
-      toggleActions: "play none none reverse",
-      markers: false,
+  tl.to(
+    img,
+    {
+      x: distanceToCenter * 0.7,
+      scale: 1.1 + index * 0.05,
+      duration: 2,
+      ease: "power2.out",
     },
-    x: distanceToCenter * 0.7,
-    zIndex: 10 + index,
-    scale: 1.1 + index * 0.05,
-    opacity: 1,
-  });
+    0
+  );
 });
 
-gsap
-  .timeline({
-    scrollTrigger: {
-      trigger: "#serum-section",
-      start: "top center+=100",
-      end: "bottom center",
-      scrub: true,
-      markers: false,
-    },
-  })
-  .from(".serum-content h2", {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-  })
-  .from(
-    ".serum-content p",
-    {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-    },
-    "-=0.5"
-  )
-  .from(
-    "#customBtn",
-    {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-    },
-    "-=0.4"
-  );
+// Step 2: slide images to the right
+tl.to(
+  images,
+  {
+    x: "+=400",
+    opacity: 1,
+    duration: 2,
+    ease: "power2.inOut",
+  },
+  "+=1"
+);
+
+// Step 3: show content AFTER image animation
+tl.to(
+  ".serum-content",
+  {
+    autoAlpha: 1,
+    scale: 1.05,
+    ease: "power2.out",
+    duration: 1.2,
+  },
+  "+=0.5"
+); // starts after images have moved out
