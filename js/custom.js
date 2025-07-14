@@ -17,6 +17,25 @@ document.querySelectorAll("#customBtn").forEach((btn) => {
     });
   });
 });
+
+// ==========  sectionTitle =========== //
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate the ".sectionTitle" (Best Seller)
+gsap.to(".sectionTitle", {
+  scrollTrigger: {
+    trigger: "#serum-section",
+    start: "top 70%", // Animate when the section hits 70% of viewport
+    toggleActions: "play reverse play reverse", // play on enter, reverse on leave
+    markers: false, // Set to true if you want to debug scroll position
+  },
+  duration: 1.2,
+  opacity: 1,
+  scale: 1,
+  ease: "power3.out",
+});
+
 // ===========  Header =========== //
 
 gsap.to("header", {
@@ -449,3 +468,73 @@ tl.to(
   },
   "+=0.5"
 ); // starts after images have moved out
+
+// ==========  Testimonials Slider Animation =========== //
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate Heading and Slider on scroll
+gsap.from("#testimonialSection h2", {
+  scrollTrigger: {
+    trigger: "#testimonialSection",
+    start: "top 80%",
+    toggleActions: "play reverse play reverse",
+  },
+  opacity: 0,
+  y: 50,
+  scale: 0.9,
+  duration: 1,
+  ease: "power3.out",
+});
+
+gsap.from("#testimonialSlider", {
+  scrollTrigger: {
+    trigger: "#testimonialSection",
+    start: "top 70%",
+    toggleActions: "play reverse play reverse",
+  },
+  opacity: 0,
+  y: 80,
+  scale: 0.95,
+  duration: 1.2,
+  ease: "power2.out",
+  delay: 0.2,
+});
+
+// Slider Logic (unchanged)
+let currentIndex = 0;
+const slider = document.getElementById("testimonialSlider");
+const items = document.querySelectorAll(".testimonial-item");
+const totalItems = items.length;
+
+function updateSlider() {
+  const xOffset = -currentIndex * 100;
+  gsap.to(slider, {
+    xPercent: xOffset,
+    duration: 0.8,
+    ease: "power2.out",
+  });
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % totalItems;
+  updateSlider();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  updateSlider();
+});
+
+function updateSlider() {
+  const xOffset = -currentIndex * 100;
+  gsap.to(slider, {
+    xPercent: xOffset,
+    duration: 0.8,
+    ease: "power2.out",
+  });
+
+  // Optional: active dot styling
+  dots.forEach((dot) => dot.classList.remove("opacity-50"));
+  dots[currentIndex]?.classList.add("opacity-50");
+}
