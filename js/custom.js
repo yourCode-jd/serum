@@ -538,3 +538,39 @@ function updateSlider() {
   dots.forEach((dot) => dot.classList.remove("opacity-50"));
   dots[currentIndex]?.classList.add("opacity-50");
 }
+
+// ========== Dot Image Animation with ScrollTrigger ========== //
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".dot").forEach((dot, i) => {
+  // Step 1: Entrance animation (fade + scale in)
+  gsap.fromTo(
+    dot,
+    {
+      autoAlpha: 0,
+      scale: 0.5,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#testimonialSection",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      autoAlpha: 0.8,
+      scale: 1,
+      duration: 1,
+      ease: "back.out(1.7)",
+      delay: i * 0.15,
+      onComplete: () => {
+        // Step 2: Floating after appearing
+        gsap.to(dot, {
+          y: 30,
+          duration: 2,
+          ease: "power1.inOut",
+          yoyo: true,
+          repeat: -1,
+        });
+      },
+    }
+  );
+});
