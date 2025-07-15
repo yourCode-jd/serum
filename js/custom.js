@@ -574,3 +574,64 @@ gsap.utils.toArray(".dot").forEach((dot, i) => {
     }
   );
 });
+
+// ===========  Newsletter =========== //
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate whole newsletter box
+gsap.from(".newsletter-box", {
+  scrollTrigger: {
+    trigger: ".newsletter-box",
+    start: "top 80%",
+    toggleActions: "play reverse play reverse",
+  },
+  opacity: 0,
+  y: 80,
+  duration: 1.2,
+  ease: "power3.out",
+});
+
+// Animate image
+gsap.from(".newsletter-box img", {
+  scrollTrigger: {
+    trigger: ".newsletter-box",
+    start: "top 85%",
+    toggleActions: "play reverse play reverse",
+  },
+  opacity: 0,
+  x: -60,
+  duration: 1,
+  delay: 0.2,
+  ease: "power2.out",
+});
+
+// Animate heading and paragraph
+gsap.from(".newsletter-box h2, .newsletter-box p", {
+  scrollTrigger: {
+    trigger: ".newsletter-box",
+    start: "top 85%",
+    toggleActions: "play reverse play reverse",
+  },
+  opacity: 0,
+  y: 40,
+  duration: 1,
+  delay: 0.3,
+  stagger: 0.2,
+  ease: "power2.out",
+});
+
+// Animate form input and button
+gsap.from(".newsletter-box form input", {
+  scrollTrigger: {
+    trigger: ".newsletter-box",
+    start: "top 85%",
+    toggleActions: "play reverse play reverse",
+  },
+  opacity: 0,
+  y: 20,
+  duration: 1,
+  delay: 0.5,
+  stagger: 0.2,
+  ease: "power2.out",
+});
