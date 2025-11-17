@@ -68,6 +68,11 @@ section {
     padding: 100px 0;
 }
 
+@media screen and (max-width: 1023px) {
+    section {
+        padding: 50px 0;
+    }
+}
 
 /* ===== Hero Section ====== */
 
@@ -117,6 +122,16 @@ section {
     bottom: 0;
 }
 
+@media screen and (max-width: 1023px) {
+    .imageWrapper {
+        width: 200px;
+        height: 200px;
+        filter: blur(5px);
+        box-shadow: 10px -10px 0px 10px #ffffff;
+
+    }
+}
+
 .aboutWrapper {
     content: "";
     position: absolute;
@@ -141,11 +156,26 @@ section {
     top: 65px;
 }
 
+@media screen and (max-width: 1023px) {
+    #serumImageAbout1 {
+        right: 0;
+        top: 0;
+    }
+}
+
 #serumImageAbout2 {
     left: -122px;
     z-index: -1;
     top: 65px;
 }
+
+@media screen and (max-width: 1023px) {
+    #serumImageAbout2 {
+        left: 0;
+        top: 0;
+    }
+}
+
 
 /* ===== Features Section ==== */
 
