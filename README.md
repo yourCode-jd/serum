@@ -7,7 +7,7 @@ A plant-forward serum that soothes, hydrates, and strengthens skin using clean, 
 
 ## 🚀 Github Demo
 
-[View Here](https://yourcode-jd.github.io/serum/)
+[View Here](https://yourcode-jd.github.io/Serum/)
 
 ---
 
